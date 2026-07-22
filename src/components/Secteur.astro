@@ -1,0 +1,74 @@
+---
+const cities = [
+  "Luzech",
+  "Cahors",
+  "Pradines",
+  "Puy-l'Évêque",
+  "Mercuès",
+  "Douelle",
+  "Caillac",
+  "Espère",
+  "Arcambal",
+  "Labastide-Marnhac",
+  "Sauzet",
+  "Saint-Géry-Vers",
+];
+---
+
+<section id="secteur" class="bg-[#eef5ef] py-24">
+  <div class="mx-auto max-w-7xl px-6">
+
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-sm font-black uppercase tracking-[0.25em] text-green-700">
+        Secteur d'intervention
+      </p>
+
+      <h2 class="mt-4 text-4xl font-black tracking-tight text-green-950 md:text-5xl">
+        Nous intervenons dans tout le secteur de Cahors
+      </h2>
+
+      <p class="mt-6 text-lg leading-8 text-slate-600">
+        Mon Terrain Parfait intervient rapidement pour tous vos travaux de
+        débroussaillage, nettoyage de terrain, taille de haies et entretien
+        d'espaces verts dans le Lot.
+      </p>
+    </div>
+
+    <div class="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {
+        cities.map((city) => (
+          <div class="rounded-2xl border border-green-950/10 bg-white px-6 py-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">📍</span>
+
+              <span class="font-black text-green-950">
+                {city}
+              </span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-16 rounded-[2rem] bg-green-900 p-10 text-center text-white">
+
+      <h3 class="text-3xl font-black">
+        Votre commune n'est pas dans la liste ?
+      </h3>
+
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-green-50/80">
+        Aucun problème. Nous nous déplaçons également dans les communes voisines.
+        Contactez-nous pour savoir si nous intervenons chez vous.
+      </p>
+
+      <a
+        href="#contact"
+        class="mt-8 inline-flex rounded-full bg-green-300 px-8 py-4 font-black text-green-950 transition hover:bg-green-200"
+      >
+        Demander un devis gratuit
+      </a>
+
+    </div>
+
+  </div>
+</section>

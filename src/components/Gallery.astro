@@ -1,0 +1,88 @@
+---
+const projects = [
+  {
+    title: "Débroussaillage d’un terrain envahi",
+    location: "Luzech",
+    before: "/images/chantier-1-avant.jpeg",
+    after: "/images/chantier-1-apres.jpeg",
+  },
+  {
+    title: "Remise au propre d’un extérieur",
+    location: "Cahors",
+    before: "/images/chantier-2-avant.jpeg",
+    after: "/images/chantier-2-apres.jpeg",
+  },
+];
+---
+
+<section id="realisations" class="bg-white py-24">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="max-w-3xl">
+      <p class="text-sm font-black uppercase tracking-[0.25em] text-green-700">
+        Nos réalisations
+      </p>
+
+      <h2 class="mt-4 text-4xl font-black tracking-tight text-green-950 md:text-5xl">
+        Des résultats visibles dès la première intervention
+      </h2>
+
+      <p class="mt-6 text-lg leading-8 text-slate-600">
+        Découvrez quelques exemples de terrains remis au propre grâce à nos
+        prestations de débroussaillage et d’entretien d’espaces verts.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-10 lg:grid-cols-2">
+      {
+        projects.map((project) => (
+          <article class="overflow-hidden rounded-[2rem] border border-green-950/10 bg-[#f7f5ee] shadow-sm">
+            <div class="grid grid-cols-2">
+              <figure class="relative">
+                <img
+                  src={project.before}
+                  alt={`Avant intervention - ${project.title}`}
+                  class="h-72 w-full object-cover"
+                  loading="lazy"
+                />
+                <figcaption class="absolute left-4 top-4 rounded-full bg-black/70 px-4 py-2 text-sm font-black text-white">
+                  Avant
+                </figcaption>
+              </figure>
+
+              <figure class="relative">
+                <img
+                  src={project.after}
+                  alt={`Après intervention - ${project.title}`}
+                  class="h-72 w-full object-cover"
+                  loading="lazy"
+                />
+                <figcaption class="absolute left-4 top-4 rounded-full bg-green-700 px-4 py-2 text-sm font-black text-white">
+                  Après
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="p-7">
+              <p class="text-sm font-black uppercase tracking-[0.2em] text-green-700">
+                {project.location}
+              </p>
+
+              <h3 class="mt-3 text-2xl font-black text-green-950">
+                {project.title}
+              </h3>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-12 text-center">
+      <a
+        href="#contact"
+        class="inline-flex rounded-full bg-green-900 px-8 py-4 font-black text-white transition hover:bg-green-800"
+      >
+        Demander un devis gratuit
+      </a>
+    </div>
+  </div>
+</section>

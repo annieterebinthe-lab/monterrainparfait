@@ -1,0 +1,21 @@
+{
+  "name": "Mon Terrain Parfait",
+  "short_name": "Mon Terrain",
+  "description": "Débroussaillage, entretien d'espaces verts et nettoyage de terrain à Luzech et Cahors.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f5ee",
+  "theme_color": "#062f24",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

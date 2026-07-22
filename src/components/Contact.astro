@@ -1,0 +1,186 @@
+<section id="contact" class="bg-[#f7f5ee] py-24">
+  <div class="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.9fr_1.1fr]">
+
+    <!-- Informations -->
+    <div class="rounded-[2rem] bg-green-950 p-8 text-white md:p-10">
+      <p class="text-sm font-black uppercase tracking-[0.25em] text-green-300">
+        Contact
+      </p>
+
+      <h2 class="mt-4 text-4xl font-black tracking-tight md:text-5xl">
+        Parlons de votre terrain
+      </h2>
+
+      <p class="mt-6 max-w-xl text-lg leading-8 text-green-50/80">
+        Envoyez quelques photos et une courte description de votre besoin.
+        Nous vous répondrons rapidement pour vous proposer une première estimation.
+      </p>
+
+      <div class="mt-10 space-y-5">
+        <a
+          href="tel:+33743528759"
+          class="block rounded-2xl border border-white/15 bg-white/10 p-5 transition hover:bg-white/15"
+        >
+          <p class="text-sm font-bold uppercase tracking-[0.18em] text-green-300">
+            Téléphone
+          </p>
+
+          <p class="mt-2 text-2xl font-black">
+            07 43 52 87 59
+          </p>
+        </a>
+
+        <a
+          href="mailto:monterrainparfait@outlook.fr"
+          class="block rounded-2xl border border-white/15 bg-white/10 p-5 transition hover:bg-white/15"
+        >
+          <p class="text-sm font-bold uppercase tracking-[0.18em] text-green-300">
+            Email
+          </p>
+
+          <p class="mt-2 break-all text-lg font-black">
+            monterrainparfait@outlook.fr
+          </p>
+        </a>
+
+        <div class="rounded-2xl border border-white/15 bg-white/10 p-5">
+          <p class="text-sm font-bold uppercase tracking-[0.18em] text-green-300">
+            Secteur d’intervention
+          </p>
+
+          <p class="mt-2 text-lg font-black">
+            Luzech, Cahors et communes voisines
+          </p>
+        </div>
+      </div>
+
+      <a
+        href="https://wa.me/33743528759"
+        class="mt-8 flex w-full items-center justify-center rounded-full bg-green-300 px-7 py-4 text-center font-black text-green-950 transition hover:bg-green-200"
+      >
+        Envoyer des photos sur WhatsApp
+      </a>
+    </div>
+
+    <!-- Formulaire -->
+    <div class="rounded-[2rem] border border-green-950/10 bg-white p-8 shadow-sm md:p-10">
+      <p class="text-sm font-black uppercase tracking-[0.25em] text-green-700">
+        Devis gratuit
+      </p>
+
+      <h3 class="mt-4 text-3xl font-black text-green-950 md:text-4xl">
+        Décrivez-nous votre besoin
+      </h3>
+
+      <form
+        action="https://formsubmit.co/monterrainparfait@outlook.fr"
+        method="POST"
+        class="mt-8 space-y-6"
+      >
+        <input
+          type="hidden"
+          name="_subject"
+          value="Nouvelle demande de devis - Mon Terrain Parfait"
+        />
+
+        <input
+          type="hidden"
+          name="_captcha"
+          value="false"
+        />
+
+        <div>
+          <label for="name" class="mb-2 block font-bold text-green-950">
+            Nom
+          </label>
+
+          <input
+            id="name"
+            type="text"
+            name="Nom"
+            required
+            placeholder="Votre nom"
+            class="w-full rounded-2xl border border-green-950/15 bg-[#fbfaf5] px-5 py-4 outline-none transition focus:border-green-700"
+          />
+        </div>
+
+        <div>
+          <label for="phone" class="mb-2 block font-bold text-green-950">
+            Téléphone
+          </label>
+
+          <input
+            id="phone"
+            type="tel"
+            name="Téléphone"
+            required
+            placeholder="Votre numéro"
+            class="w-full rounded-2xl border border-green-950/15 bg-[#fbfaf5] px-5 py-4 outline-none transition focus:border-green-700"
+          />
+        </div>
+
+        <div>
+          <label for="location" class="mb-2 block font-bold text-green-950">
+            Commune
+          </label>
+
+          <input
+            id="location"
+            type="text"
+            name="Commune"
+            required
+            placeholder="Luzech, Cahors, Pradines..."
+            class="w-full rounded-2xl border border-green-950/15 bg-[#fbfaf5] px-5 py-4 outline-none transition focus:border-green-700"
+          />
+        </div>
+
+        <div>
+          <label for="service" class="mb-2 block font-bold text-green-950">
+            Prestation
+          </label>
+
+          <select
+            id="service"
+            name="Prestation"
+            required
+            class="w-full rounded-2xl border border-green-950/15 bg-[#fbfaf5] px-5 py-4 outline-none transition focus:border-green-700"
+          >
+            <option value="">Choisissez une prestation</option>
+            <option>Débroussaillage</option>
+            <option>Taille de haies</option>
+            <option>Entretien d’espaces verts</option>
+            <option>Nettoyage de terrain</option>
+            <option>Autre demande</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message" class="mb-2 block font-bold text-green-950">
+            Votre besoin
+          </label>
+
+          <textarea
+            id="message"
+            name="Message"
+            rows="6"
+            required
+            placeholder="Décrivez rapidement votre terrain et les travaux souhaités..."
+            class="w-full resize-none rounded-2xl border border-green-950/15 bg-[#fbfaf5] px-5 py-4 outline-none transition focus:border-green-700"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full rounded-full bg-green-900 px-8 py-4 font-black text-white transition hover:bg-green-800"
+        >
+          Envoyer ma demande
+        </button>
+
+        <p class="text-center text-sm text-slate-500">
+          Réponse rapide par téléphone, email ou WhatsApp.
+        </p>
+      </form>
+    </div>
+
+  </div>
+</section>
