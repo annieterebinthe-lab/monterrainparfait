@@ -1,0 +1,93 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServicePage from "../../components/ServicePage.astro";
+---
+
+<Layout
+  title="Débroussaillage professionnel à Luzech | Mon Terrain Parfait"
+  description="Débroussaillage de terrains, ronces, herbes hautes et végétation dense à Luzech, Cahors et dans le Lot. Devis gratuit."
+  canonical="/services/debroussaillage"
+>
+  <ServicePage
+    eyebrow="Nos services"
+    title="Débroussaillage professionnel"
+
+    image="/images/chantier-1-apres.jpeg"
+    imageAlt="Débroussaillage d'un terrain réalisé par Mon Terrain Parfait"
+
+    introduction="Nous réalisons le débroussaillage de terrains, jardins, parcelles et espaces envahis par les herbes hautes, les ronces ou la végétation dense. Chaque intervention est adaptée afin de retrouver un extérieur propre, sécurisé et facile à entretenir."
+
+    detailedContent={[
+      "Le débroussaillage est indispensable pour entretenir un terrain, limiter la prolifération des ronces et réduire les risques d'incendie pendant les périodes sèches. Une végétation trop dense peut rapidement rendre un espace difficilement accessible et compliquer son entretien futur.",
+
+      "Chez Mon Terrain Parfait, nous intervenons aussi bien sur des jardins de particuliers que sur des terrains plus vastes. Nous adaptons toujours notre méthode de travail selon la nature du terrain, la densité de la végétation et le résultat recherché.",
+
+      "Notre objectif est de vous restituer un terrain propre, dégagé et agréable à utiliser. Avant chaque chantier, nous échangeons avec vous afin de définir précisément vos attentes et de proposer une intervention adaptée."
+    ]}
+
+    benefits={[
+      "Devis gratuit",
+      "Intervention rapide",
+      "Travail soigné",
+      "Matériel professionnel",
+      "Particuliers et professionnels",
+      "Évacuation possible des déchets verts"
+    ]}
+
+    includedServices={[
+      "Coupe des herbes hautes",
+      "Élimination des ronces",
+      "Débroussaillage de terrains",
+      "Nettoyage des abords",
+      "Remise en état de parcelles",
+      "Évacuation des déchets verts (sur demande)"
+    ]}
+
+    serviceAreas={[
+      "Luzech",
+      "Cahors",
+      "Pradines",
+      "Mercuès",
+      "Douelle",
+      "Puy-l'Évêque",
+      "Lot"
+    ]}
+
+    serviceLinks={[
+      {
+        title: "Taille de haies",
+        description: "Redonnez une forme nette à vos haies avec une taille soignée.",
+        href: "/services/taille-haies"
+      },
+      {
+        title: "Entretien de jardin",
+        description: "Un entretien régulier pour conserver un extérieur impeccable.",
+        href: "/services/entretien-jardin"
+      },
+      {
+        title: "Nettoyage de terrain",
+        description: "Remise en état complète des terrains et parcelles.",
+        href: "/services/nettoyage-terrain"
+      }
+    ]}
+
+    faq={[
+      {
+        question: "Intervenez-vous sur de grands terrains ?",
+        answer: "Oui, nous intervenons aussi bien sur de petits jardins que sur de grandes parcelles."
+      },
+      {
+        question: "Faites-vous les ronces très épaisses ?",
+        answer: "Oui, nous disposons du matériel adapté pour les végétations les plus denses."
+      },
+      {
+        question: "Le devis est-il gratuit ?",
+        answer: "Oui, tous nos devis sont gratuits et sans engagement."
+      },
+      {
+        question: "Évacuez-vous les déchets verts ?",
+        answer: "Oui, nous pouvons assurer leur évacuation selon votre demande."
+      }
+    ]}
+  />
+</Layout>

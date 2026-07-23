@@ -1,0 +1,99 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServicePage from "../../components/ServicePage.astro";
+
+const benefits = [
+  "Remise en état complète",
+  "Extérieur plus propre et accessible",
+  "Intervention adaptée au chantier",
+  "Devis gratuit",
+];
+
+const includedServices = [
+  "Coupe des herbes hautes",
+  "Élimination des ronces et broussailles",
+  "Tonte et finitions",
+  "Nettoyage général des zones extérieures",
+];
+
+const serviceAreas = [
+  "Luzech",
+  "Cahors",
+  "Pradines",
+  "Mercuès",
+  "Douelle",
+  "Caillac",
+  "Espère",
+  "Puy-l’Évêque",
+];
+
+const serviceLinks = [
+  {
+    title: "Nettoyage de terrain",
+    description:
+      "Nettoyage des terrains négligés, encombrés ou difficiles d’accès.",
+    href: "/services/nettoyage-terrain",
+  },
+  {
+    title: "Débroussaillage",
+    description:
+      "Élimination des ronces, herbes hautes et broussailles pour dégager un terrain.",
+    href: "/services/debroussaillage",
+  },
+  {
+    title: "Tonte de pelouse",
+    description:
+      "Tonte et entretien des bordures pour retrouver une pelouse propre et régulière.",
+    href: "/services/tonte-pelouse",
+  },
+];
+
+const faq = [
+  {
+    question: "Qu’est-ce qu’une remise en état extérieure ?",
+    answer:
+      "Il s’agit d’une intervention complète destinée à nettoyer, dégager et rendre plus praticable un jardin ou un terrain laissé sans entretien.",
+  },
+  {
+    question: "Pouvez-vous intervenir avant une vente immobilière ?",
+    answer:
+      "Oui. Une remise en état permet de présenter un extérieur plus propre et plus valorisant avant une vente ou une mise en location.",
+  },
+  {
+    question: "Intervenez-vous sur les résidences secondaires ?",
+    answer:
+      "Oui, nous pouvons intervenir sur les jardins de résidences secondaires, notamment après une longue période sans entretien.",
+  },
+  {
+    question: "Le devis est-il gratuit ?",
+    answer:
+      "Oui. Le devis est gratuit et détaille les différentes opérations nécessaires pour remettre l’extérieur en état.",
+  },
+];
+
+const detailedContent = [
+  "Un jardin ou un terrain laissé sans entretien pendant plusieurs mois peut devenir difficilement accessible. Les herbes hautes, les ronces et les broussailles peuvent rapidement envahir les passages et masquer les différents espaces.",
+  "La remise en état extérieure regroupe plusieurs opérations afin de retrouver un terrain plus propre, plus clair et plus facile à entretenir par la suite.",
+  "Selon le chantier, l’intervention peut comprendre du débroussaillage, de la tonte, de la taille, le dégagement des accès et le nettoyage général des zones extérieures.",
+  "Ce service est particulièrement adapté avant une vente immobilière, une mise en location, des travaux, un emménagement ou pour reprendre l’entretien d’un jardin laissé à l’abandon.",
+];
+---
+
+<Layout
+  title="Remise en état de jardin à Luzech et Cahors | Mon Terrain Parfait"
+  description="Remise en état de jardin et d’extérieur à Luzech, Cahors et dans le Lot. Débroussaillage, tonte, nettoyage et devis gratuit."
+  canonical="/services/remise-en-etat"
+>
+  <ServicePage
+    title="Remise en état extérieure"
+    introduction="Nous remettons en état les jardins, terrains et espaces extérieurs laissés sans entretien à Luzech, Cahors et dans les communes voisines. Chaque chantier est adapté à l’état réel du terrain et au résultat souhaité."
+    image="/images/chantier-1-apres.jpeg"
+    imageAlt="Jardin remis en état par Mon Terrain Parfait à Luzech"
+    benefits={benefits}
+    includedServices={includedServices}
+    serviceAreas={serviceAreas}
+    serviceLinks={serviceLinks}
+    faq={faq}
+    detailedContent={detailedContent}
+  />
+</Layout>

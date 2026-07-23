@@ -1,59 +1,130 @@
 ---
+const pathname = Astro.url.pathname;
+
 const navItems = [
   { label: "Accueil", href: "/" },
-  { label: "Services", href: "#services" },
-  { label: "Réalisations", href: "#realisations" },
-  { label: "Secteur", href: "#secteur" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/services" },
+  { label: "Réalisations", href: "/#realisations" },
+  { label: "Secteur", href: "/#secteur" },
+  { label: "Contact", href: "/#contact" },
 ];
+
+const isActive = (href: string) => {
+  if (href === "/") {
+    return pathname === "/";
+  }
+
+  if (href === "/services") {
+    return pathname.startsWith("/services");
+  }
+
+  return false;
+};
 ---
 
-<header class="sticky top-0 z-50 border-b border-green-950/10 bg-[#fbfaf5]/95 backdrop-blur shadow-sm">
-  <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5">
-
+<header
+  class="sticky top-0 z-50 border-b border-green-950/10 bg-[#fbfaf5]/95 shadow-sm backdrop-blur"
+>
+  <div
+    class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5"
+  >
     <!-- Logo texte -->
     <a href="/" class="flex flex-col">
-      <span class="text-4xl font-black tracking-tight text-green-950">
+      <span class="text-2xl font-black tracking-tight text-green-950 sm:text-3xl lg:text-4xl">
         Mon Terrain Parfait
       </span>
 
-      <span class="mt-1 text-xs font-bold uppercase tracking-[0.35em] text-green-700">
+      <span
+        class="mt-1 text-[0.65rem] font-bold uppercase tracking-[0.25em] text-green-700 sm:text-xs sm:tracking-[0.35em]"
+      >
         Débroussaillage • Entretien
       </span>
     </a>
 
-    <!-- Navigation -->
-    <nav class="hidden lg:flex items-center gap-8">
+    <!-- Navigation ordinateur -->
+    <nav
+      class="hidden items-center gap-8 lg:flex"
+      aria-label="Navigation principale"
+    >
       {
-        navItems.map((item) => (
-          <a
-            href={item.href}
-            class="font-semibold text-slate-700 transition hover:text-green-700"
-          >
-            {item.label}
-          </a>
-        ))
+        navItems.map((item) => {
+          const active = isActive(item.href);
+
+          return (
+            <a
+              href={item.href}
+              aria-current={active ? "page" : undefined}
+              class:list={[
+                "relative py-2 font-semibold transition",
+                active
+                  ? "text-green-800"
+                  : "text-slate-700 hover:text-green-700",
+              ]}
+            >
+              {item.label}
+
+              {
+                active && (
+                  <span
+                    class="absolute inset-x-0 -bottom-1 h-0.5 rounded-full bg-green-700"
+                    aria-hidden="true"
+                  />
+                )
+              }
+            </a>
+          );
+        })
       }
     </nav>
 
     <!-- Boutons -->
     <div class="flex items-center gap-3">
-
       <a
-        href="https://wa.me/33743528759"
-        class="hidden md:inline-flex rounded-full border-2 border-green-700 px-6 py-3 font-bold text-green-800 transition hover:bg-green-700 hover:text-white"
+        href="https://wa.me/33743528759?text=Bonjour%2C%20je%20souhaite%20obtenir%20un%20devis%20gratuit."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden rounded-full border-2 border-green-700 px-6 py-3 font-bold text-green-800 transition hover:bg-green-700 hover:text-white md:inline-flex"
       >
         WhatsApp
       </a>
 
       <a
         href="tel:+33743528759"
-        class="rounded-full bg-green-800 px-6 py-3 font-bold text-white shadow-md transition hover:bg-green-700"
+        aria-label="Appeler Mon Terrain Parfait au 07 43 52 87 59"
+        class="rounded-full bg-green-800 px-4 py-3 text-sm font-bold text-white shadow-md transition hover:bg-green-700 sm:px-6 sm:text-base"
       >
-        07 43 52 87 59
+        <span class="hidden sm:inline">07 43 52 87 59</span>
+        <span class="sm:hidden">Appeler</span>
       </a>
-
     </div>
-
   </div>
+
+  <!-- Navigation mobile -->
+  <nav
+    class="border-t border-green-950/10 px-4 py-3 lg:hidden"
+    aria-label="Navigation mobile"
+  >
+    <div class="mx-auto flex max-w-7xl gap-2 overflow-x-auto">
+      {
+        navItems.map((item) => {
+          const active = isActive(item.href);
+
+          return (
+            <a
+              href={item.href}
+              aria-current={active ? "page" : undefined}
+              class:list={[
+                "shrink-0 rounded-full px-4 py-2 text-sm font-bold transition",
+                active
+                  ? "bg-green-800 text-white"
+                  : "bg-green-100 text-green-950 hover:bg-green-200",
+              ]}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </div>
+  </nav>
 </header>

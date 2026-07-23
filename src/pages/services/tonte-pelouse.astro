@@ -1,0 +1,99 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServicePage from "../../components/ServicePage.astro";
+
+const benefits = [
+  "Pelouse propre et régulière",
+  "Finitions soignées",
+  "Intervention ponctuelle ou régulière",
+  "Devis gratuit",
+];
+
+const includedServices = [
+  "Tonte de la pelouse",
+  "Finition des bordures",
+  "Dégagement des zones difficiles d’accès",
+  "Ramassage possible des déchets de tonte",
+];
+
+const serviceAreas = [
+  "Luzech",
+  "Cahors",
+  "Pradines",
+  "Mercuès",
+  "Douelle",
+  "Caillac",
+  "Espère",
+  "Puy-l’Évêque",
+];
+
+const serviceLinks = [
+  {
+    title: "Entretien de jardin",
+    description:
+      "Entretien ponctuel ou régulier pour garder un jardin propre et agréable toute l’année.",
+    href: "/services/entretien-jardin",
+  },
+  {
+    title: "Taille de haies",
+    description:
+      "Taille d’entretien, réduction de hauteur et remise en forme de vos haies.",
+    href: "/services/taille-haies",
+  },
+  {
+    title: "Remise en état extérieure",
+    description:
+      "Intervention complète pour retrouver un jardin propre, accessible et plus facile à entretenir.",
+    href: "/services/remise-en-etat",
+  },
+];
+
+const faq = [
+  {
+    question: "Proposez-vous des tontes ponctuelles ?",
+    answer:
+      "Oui. Nous pouvons intervenir pour une tonte unique ou dans le cadre d’un entretien régulier.",
+  },
+  {
+    question: "Pouvez-vous tondre une pelouse très haute ?",
+    answer:
+      "Oui, selon l’état du terrain. Lorsque l’herbe est très haute ou dense, un débroussaillage préalable peut être nécessaire.",
+  },
+  {
+    question: "Les bordures sont-elles comprises ?",
+    answer:
+      "Les finitions des bordures peuvent être intégrées à la prestation selon votre demande et la configuration du jardin.",
+  },
+  {
+    question: "Le devis est-il gratuit ?",
+    answer:
+      "Oui, le devis est gratuit et permet de définir précisément le travail à réaliser.",
+  },
+];
+
+const detailedContent = [
+  "Une pelouse régulièrement entretenue améliore immédiatement l’aspect général d’un jardin. La tonte permet de conserver un extérieur propre, accueillant et plus facile à maintenir.",
+  "Mon Terrain Parfait intervient pour la tonte ponctuelle ou régulière des pelouses autour de Luzech, Cahors et dans les communes voisines.",
+  "La prestation est adaptée à la superficie du jardin, à la hauteur de l’herbe, à l’accessibilité et au niveau de finition attendu.",
+  "Lorsque la végétation est trop haute, trop dense ou mélangée à des ronces, une opération de débroussaillage peut être recommandée avant la tonte.",
+];
+---
+
+<Layout
+  title="Tonte de pelouse à Luzech et Cahors | Mon Terrain Parfait"
+  description="Tonte de pelouse à Luzech, Cahors et dans le Lot. Entretien ponctuel ou régulier, finitions des bordures et devis gratuit."
+  canonical="/services/tonte-pelouse"
+>
+  <ServicePage
+    title="Tonte de pelouse"
+    introduction="Nous réalisons la tonte de pelouse et les finitions de vos espaces verts à Luzech, Cahors et dans les communes voisines. L’intervention peut être ponctuelle ou régulière selon vos besoins."
+    image="/images/chantier-1-apres.jpeg"
+    imageAlt="Pelouse entretenue par Mon Terrain Parfait à Luzech"
+    benefits={benefits}
+    includedServices={includedServices}
+    serviceAreas={serviceAreas}
+    serviceLinks={serviceLinks}
+    faq={faq}
+    detailedContent={detailedContent}
+  />
+</Layout>

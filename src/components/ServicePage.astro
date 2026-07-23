@@ -1,0 +1,538 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface ServiceLink {
+  title: string;
+  description: string;
+  href: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  introduction: string;
+  benefits: string[];
+  includedServices: string[];
+  serviceAreas: string[];
+  faq: FAQItem[];
+
+  image?: string;
+  imageAlt?: string;
+  detailedContent?: string[];
+  serviceLinks?: ServiceLink[];
+}
+
+const {
+  eyebrow = "Mon Terrain Parfait",
+  title,
+  introduction,
+  benefits,
+  includedServices,
+  serviceAreas,
+  faq,
+
+  image = "/images/chantier-1-apres.jpeg",
+  imageAlt = "Entretien d’un terrain réalisé par Mon Terrain Parfait",
+  detailedContent = [],
+  serviceLinks = [],
+} = Astro.props;
+
+const phoneDisplay = "07 43 52 87 59";
+const phoneLink = "tel:+33743528759";
+const whatsappLink =
+  "https://wa.me/33743528759?text=Bonjour%2C%20je%20souhaite%20obtenir%20un%20devis%20gratuit%20pour%20mon%20terrain.";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(faqSchema)}
+></script>
+
+<main>
+  <!-- Fil d’Ariane -->
+  <nav
+    aria-label="Fil d’Ariane"
+    class="border-b border-green-950/10 bg-white"
+  >
+    <div class="mx-auto max-w-7xl px-6 py-4">
+      <ol class="flex flex-wrap items-center gap-2 text-sm text-slate-600">
+        <li>
+          <a
+            href="/"
+            class="font-bold transition hover:text-green-800"
+          >
+            Accueil
+          </a>
+        </li>
+
+        <li aria-hidden="true">/</li>
+
+        <li>
+          <a
+            href="/#services"
+            class="font-bold transition hover:text-green-800"
+          >
+            Services
+          </a>
+        </li>
+
+        <li aria-hidden="true">/</li>
+
+        <li
+          aria-current="page"
+          class="font-black text-green-950"
+        >
+          {title}
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="overflow-hidden bg-green-950 text-white">
+    <div
+      class="mx-auto grid min-h-[650px] max-w-7xl items-center gap-14 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-24"
+    >
+      <div>
+        <p
+          class="text-sm font-black uppercase tracking-[0.25em] text-green-300"
+        >
+          {eyebrow}
+        </p>
+
+        <h1
+          class="mt-5 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl md:text-6xl"
+        >
+          {title}
+        </h1>
+
+        <p class="mt-7 max-w-3xl text-lg leading-8 text-green-50/90">
+          {introduction}
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <span
+            class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-bold"
+          >
+            Devis gratuit
+          </span>
+
+          <span
+            class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-bold"
+          >
+            Intervention locale
+          </span>
+
+          <span
+            class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-bold"
+          >
+            Travail soigné
+          </span>
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a
+            href="/#contact"
+            class="rounded-full bg-green-300 px-7 py-4 font-black text-green-950 transition hover:-translate-y-0.5 hover:bg-green-200"
+          >
+            Demander un devis gratuit
+          </a>
+
+          <a
+            href={phoneLink}
+            class="rounded-full border border-white/30 px-7 py-4 font-black text-white transition hover:bg-white hover:text-green-950"
+          >
+            {phoneDisplay}
+          </a>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div
+          class="absolute -left-8 -top-8 h-40 w-40 rounded-full bg-green-300/20 blur-3xl"
+          aria-hidden="true"
+        >
+        </div>
+
+        <img
+          src={image}
+          alt={imageAlt}
+          width="900"
+          height="700"
+          loading="eager"
+          fetchpriority="high"
+          class="relative aspect-[4/3] w-full rounded-[2rem] object-cover shadow-2xl ring-1 ring-white/15"
+        />
+
+        <div
+          class="absolute -bottom-6 left-6 right-6 rounded-3xl bg-white p-5 text-green-950 shadow-xl sm:left-auto sm:right-6 sm:max-w-xs"
+        >
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-green-700">
+            Mon Terrain Parfait
+          </p>
+
+          <p class="mt-2 font-black leading-6">
+            Entretien des espaces verts à Luzech, Cahors et dans les communes
+            voisines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Présentation et avantages -->
+  <section class="bg-white py-20 md:py-24">
+    <div class="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-2">
+      <div>
+        <p
+          class="text-sm font-black uppercase tracking-[0.25em] text-green-700"
+        >
+          Une intervention professionnelle
+        </p>
+
+        <h2
+          class="mt-4 text-3xl font-black tracking-tight text-green-950 sm:text-4xl"
+        >
+          Un extérieur propre, praticable et valorisé
+        </h2>
+
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Chaque terrain est différent. Nous adaptons notre intervention à son
+          état, à sa superficie, à son accessibilité et à vos besoins afin de
+          proposer une prestation claire et adaptée.
+        </p>
+
+        <p class="mt-5 leading-7 text-slate-600">
+          Avant le chantier, nous échangeons avec vous sur le résultat attendu.
+          Vous savez ainsi ce qui est prévu, quelles zones seront traitées et
+          comment l’intervention sera organisée.
+        </p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        {
+          benefits.map((benefit) => (
+            <article class="rounded-3xl border border-green-950/10 bg-[#f7f5ee] p-6 transition hover:-translate-y-1 hover:shadow-lg">
+              <span
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-green-200 font-black text-green-950"
+                aria-hidden="true"
+              >
+                ✓
+              </span>
+
+              <p class="mt-4 font-black leading-7 text-green-950">
+                {benefit}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenu éditorial -->
+  {
+    detailedContent.length > 0 && (
+      <section class="bg-[#f7f5ee] py-20 md:py-24">
+        <div class="mx-auto max-w-4xl px-6">
+          <p class="text-sm font-black uppercase tracking-[0.25em] text-green-700">
+            Une prestation adaptée
+          </p>
+
+          <h2 class="mt-4 text-3xl font-black tracking-tight text-green-950 sm:text-4xl">
+            Une solution adaptée à l’état de votre terrain
+          </h2>
+
+          <div class="mt-8 space-y-6 text-lg leading-8 text-slate-600">
+            {detailedContent.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Contenu de la prestation -->
+  <section class="bg-[#f7f5ee] py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="max-w-3xl">
+        <p
+          class="text-sm font-black uppercase tracking-[0.25em] text-green-700"
+        >
+          La prestation
+        </p>
+
+        <h2
+          class="mt-4 text-3xl font-black tracking-tight text-green-950 sm:text-4xl"
+        >
+          Ce que peut comprendre l’intervention
+        </h2>
+
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Le contenu précis du chantier dépend de l’état du terrain et de votre
+          demande. Un devis permet de définir clairement les travaux à réaliser.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-5 md:grid-cols-2">
+        {
+          includedServices.map((item) => (
+            <article class="flex items-start gap-4 rounded-3xl border border-green-950/5 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <span
+                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-100 font-black text-green-800"
+                aria-hidden="true"
+              >
+                ✓
+              </span>
+
+              <p class="font-bold leading-7 text-slate-700">
+                {item}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi nous choisir -->
+  <section class="bg-green-950 py-20 text-white md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="max-w-3xl">
+        <p
+          class="text-sm font-black uppercase tracking-[0.25em] text-green-300"
+        >
+          Mon Terrain Parfait
+        </p>
+
+        <h2 class="mt-4 text-3xl font-black tracking-tight sm:text-4xl">
+          Pourquoi nous confier votre extérieur ?
+        </h2>
+      </div>
+
+      <div class="mt-12 grid gap-5 md:grid-cols-3">
+        <article class="rounded-3xl border border-white/15 bg-white/5 p-7">
+          <p class="text-3xl font-black text-green-300">01</p>
+
+          <h3 class="mt-5 text-xl font-black">
+            Une prestation claire
+          </h3>
+
+          <p class="mt-4 leading-7 text-green-50/80">
+            Nous définissons avec vous les zones à traiter et le résultat
+            attendu avant le début du chantier.
+          </p>
+        </article>
+
+        <article class="rounded-3xl border border-white/15 bg-white/5 p-7">
+          <p class="text-3xl font-black text-green-300">02</p>
+
+          <h3 class="mt-5 text-xl font-black">
+            Un service de proximité
+          </h3>
+
+          <p class="mt-4 leading-7 text-green-50/80">
+            Nous intervenons principalement autour de Luzech et Cahors, avec une
+            bonne connaissance du secteur.
+          </p>
+        </article>
+
+        <article class="rounded-3xl border border-white/15 bg-white/5 p-7">
+          <p class="text-3xl font-black text-green-300">03</p>
+
+          <h3 class="mt-5 text-xl font-black">
+            Un travail soigné
+          </h3>
+
+          <p class="mt-4 leading-7 text-green-50/80">
+            Notre objectif est de rendre votre terrain plus propre, plus
+            accessible et plus agréable à entretenir.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secteurs -->
+  <section class="bg-white py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="max-w-3xl">
+        <p
+          class="text-sm font-black uppercase tracking-[0.25em] text-green-700"
+        >
+          Secteur d’intervention
+        </p>
+
+        <h2
+          class="mt-4 text-3xl font-black tracking-tight text-green-950 sm:text-4xl"
+        >
+          Intervention autour de Luzech et Cahors
+        </h2>
+
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Vous êtes situé dans une commune voisine qui n’apparaît pas dans la
+          liste ? Contactez-nous pour vérifier les possibilités d’intervention.
+        </p>
+      </div>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        {
+          serviceAreas.map((area) => (
+            <span class="rounded-full border border-green-950/10 bg-green-100 px-5 py-3 font-black text-green-900">
+              {area}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Autres services -->
+  {
+    serviceLinks.length > 0 && (
+      <section class="bg-[#f7f5ee] py-20 md:py-24">
+        <div class="mx-auto max-w-7xl px-6">
+          <p class="text-sm font-black uppercase tracking-[0.25em] text-green-700">
+            Nos autres services
+          </p>
+
+          <h2 class="mt-4 text-3xl font-black tracking-tight text-green-950 sm:text-4xl">
+            Découvrez nos autres prestations
+          </h2>
+
+          <div class="mt-12 grid gap-6 md:grid-cols-3">
+            {serviceLinks.map((service) => (
+              <a
+                href={service.href}
+                class="group rounded-3xl border border-green-950/10 bg-white p-7 transition hover:-translate-y-1 hover:shadow-xl"
+              >
+                <h3 class="text-xl font-black text-green-950">
+                  {service.title}
+                </h3>
+
+                <p class="mt-4 leading-7 text-slate-600">
+                  {service.description}
+                </p>
+
+                <span class="mt-6 inline-flex font-black text-green-800">
+                  Découvrir le service
+                  <span
+                    class="ml-2 transition group-hover:translate-x-1"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- FAQ -->
+  <section class="bg-[#f7f5ee] py-20 md:py-24">
+    <div class="mx-auto max-w-4xl px-6">
+      <p
+        class="text-sm font-black uppercase tracking-[0.25em] text-green-700"
+      >
+        Questions fréquentes
+      </p>
+
+      <h2
+        class="mt-4 text-3xl font-black tracking-tight text-green-950 sm:text-4xl"
+      >
+        Tout savoir avant l’intervention
+      </h2>
+
+      <div class="mt-12 space-y-4">
+        {
+          faq.map((item) => (
+            <details class="group rounded-3xl border border-green-950/10 bg-white p-6 shadow-sm">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-black text-green-950">
+                <span>{item.question}</span>
+
+                <span
+                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-100 text-xl transition group-open:rotate-45"
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+              </summary>
+
+              <p class="mt-5 max-w-3xl leading-7 text-slate-600">
+                {item.answer}
+              </p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Appel à l’action -->
+  <section class="bg-green-900 py-20 text-white">
+    <div class="mx-auto max-w-5xl px-6 text-center">
+      <p
+        class="text-sm font-black uppercase tracking-[0.25em] text-green-300"
+      >
+        Devis gratuit
+      </p>
+
+      <h2
+        class="mt-4 text-3xl font-black tracking-tight sm:text-4xl md:text-5xl"
+      >
+        Parlez-nous de votre terrain
+      </h2>
+
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-green-50/90">
+        Envoyez quelques photos, votre commune et une estimation de la surface
+        afin d’obtenir un premier avis sur votre chantier.
+      </p>
+
+      <div class="mt-9 flex flex-wrap justify-center gap-4">
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full bg-green-300 px-7 py-4 font-black text-green-950 transition hover:-translate-y-0.5 hover:bg-green-200"
+        >
+          Envoyer des photos sur WhatsApp
+        </a>
+
+        <a
+          href="/#contact"
+          class="rounded-full border border-white/30 px-7 py-4 font-black text-white transition hover:bg-white hover:text-green-950"
+        >
+          Accéder au formulaire
+        </a>
+      </div>
+
+      <p class="mt-7 text-sm font-bold text-green-50/70">
+        Vous pouvez également nous appeler au
+        <a
+          href={phoneLink}
+          class="ml-1 underline decoration-green-300 underline-offset-4"
+        >
+          {phoneDisplay}
+        </a>.
+      </p>
+    </div>
+  </section>
+</main>

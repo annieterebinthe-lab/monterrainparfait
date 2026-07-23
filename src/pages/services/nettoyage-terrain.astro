@@ -1,0 +1,99 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServicePage from "../../components/ServicePage.astro";
+
+const benefits = [
+  "Remise en état complète",
+  "Terrain plus propre et praticable",
+  "Intervention adaptée à la situation",
+  "Devis gratuit",
+];
+
+const includedServices = [
+  "Nettoyage des zones envahies",
+  "Coupe des herbes hautes et des ronces",
+  "Ramassage des déchets verts",
+  "Dégagement des accès et des passages",
+];
+
+const serviceAreas = [
+  "Luzech",
+  "Cahors",
+  "Pradines",
+  "Mercuès",
+  "Douelle",
+  "Caillac",
+  "Espère",
+  "Puy-l’Évêque",
+];
+
+const serviceLinks = [
+  {
+    title: "Débroussaillage",
+    description:
+      "Coupe des herbes hautes, des ronces et des broussailles pour dégager les terrains difficiles à entretenir.",
+    href: "/services/debroussaillage",
+  },
+  {
+    title: "Entretien de jardin",
+    description:
+      "Entretien ponctuel ou régulier pour conserver un jardin propre, agréable et facile à maintenir.",
+    href: "/services/entretien-jardin",
+  },
+  {
+    title: "Tonte de pelouse",
+    description:
+      "Tonte et entretien des bordures pour retrouver une pelouse nette et un extérieur soigné.",
+    href: "/services/tonte-pelouse",
+  },
+];
+
+const faq = [
+  {
+    question: "Dans quels cas faut-il nettoyer un terrain ?",
+    answer:
+      "Un nettoyage peut être nécessaire après une longue période sans entretien, avant une vente, avant des travaux ou lorsqu’un terrain est devenu difficilement accessible.",
+  },
+  {
+    question: "Pouvez-vous intervenir sur un terrain très envahi ?",
+    answer:
+      "Oui. La prestation est adaptée à la densité de la végétation, à la superficie, à l’accessibilité et aux équipements nécessaires.",
+  },
+  {
+    question: "Les déchets verts sont-ils ramassés ?",
+    answer:
+      "Le ramassage peut être compris dans la prestation. Les modalités d’évacuation sont précisées dans le devis selon le volume et la nature des déchets.",
+  },
+  {
+    question: "Le devis est-il gratuit ?",
+    answer:
+      "Oui. Le devis est gratuit et permet de définir clairement les zones à nettoyer et le contenu de l’intervention.",
+  },
+];
+
+const detailedContent = [
+  "Un terrain laissé sans entretien peut rapidement être envahi par les herbes hautes, les ronces, les broussailles et les végétaux indésirables. Cette végétation rend les déplacements difficiles et peut masquer des obstacles présents au sol.",
+  "Mon Terrain Parfait intervient pour dégager les zones concernées et redonner au terrain un aspect plus propre, plus accessible et plus facile à entretenir.",
+  "La prestation est adaptée à la situation réelle du chantier. Nous prenons en compte la superficie, la densité de la végétation, la pente, l’accessibilité et le résultat que vous souhaitez obtenir.",
+  "Le nettoyage de terrain peut être réalisé avant une vente immobilière, avant des travaux, pour l’entretien d’une résidence secondaire ou simplement pour reprendre le contrôle d’un extérieur laissé à l’abandon.",
+];
+---
+
+<Layout
+  title="Nettoyage de terrain à Luzech et Cahors | Mon Terrain Parfait"
+  description="Nettoyage et remise en état de terrain à Luzech, Cahors et dans le Lot. Coupe des ronces, herbes hautes, dégagement des accès et devis gratuit."
+  canonical="/services/nettoyage-terrain"
+>
+  <ServicePage
+    title="Nettoyage de terrain"
+    introduction="Nous réalisons le nettoyage et la remise en état des terrains envahis, négligés ou difficiles d’accès à Luzech, Cahors et dans les communes voisines. L’intervention est définie selon l’état du terrain et le résultat attendu."
+    image="/images/chantier-1-apres.jpeg"
+    imageAlt="Terrain nettoyé et remis en état par Mon Terrain Parfait"
+    benefits={benefits}
+    includedServices={includedServices}
+    serviceAreas={serviceAreas}
+    serviceLinks={serviceLinks}
+    faq={faq}
+    detailedContent={detailedContent}
+  />
+</Layout>

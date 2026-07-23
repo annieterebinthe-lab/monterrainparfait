@@ -1,0 +1,379 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const services = [
+  {
+    number: "01",
+    title: "Débroussaillage",
+    description:
+      "Coupe des herbes hautes, élimination des ronces et dégagement des terrains envahis par une végétation dense.",
+    href: "/services/debroussaillage",
+  },
+  {
+    number: "02",
+    title: "Taille de haies",
+    description:
+      "Taille d’entretien, réduction de hauteur et remise en forme de vos haies pour un résultat propre et régulier.",
+    href: "/services/taille-haies",
+  },
+  {
+    number: "03",
+    title: "Entretien de jardin",
+    description:
+      "Entretien ponctuel ou régulier de vos espaces verts afin de conserver un jardin propre et agréable.",
+    href: "/services/entretien-jardin",
+  },
+  {
+    number: "04",
+    title: "Nettoyage de terrain",
+    description:
+      "Remise en état des terrains négligés, encombrés ou difficiles d’accès avant leur utilisation ou leur entretien.",
+    href: "/services/nettoyage-terrain",
+  },
+  {
+    number: "05",
+    title: "Tonte de pelouse",
+    description:
+      "Tonte de pelouse et entretien des bordures pour retrouver un extérieur net et facile à entretenir.",
+    href: "/services/tonte-pelouse",
+  },
+  {
+    number: "06",
+    title: "Remise en état extérieure",
+    description:
+      "Intervention complète pour redonner un aspect propre et praticable à un jardin ou à un espace extérieur.",
+    href: "/services/remise-en-etat",
+  },
+];
+
+const serviceAreas = [
+  "Luzech",
+  "Cahors",
+  "Pradines",
+  "Mercuès",
+  "Douelle",
+  "Caillac",
+  "Espère",
+  "Puy-l’Évêque",
+];
+
+const whatsappLink =
+  "https://wa.me/33743528759?text=Bonjour%2C%20je%20souhaite%20obtenir%20un%20devis%20gratuit%20pour%20l%27entretien%20de%20mon%20terrain.";
+---
+
+<Layout
+  title="Services d’espaces verts à Luzech et Cahors | Mon Terrain Parfait"
+  description="Débroussaillage, taille de haies, tonte, entretien de jardin et nettoyage de terrain à Luzech, Cahors et dans le Lot. Devis gratuit."
+  canonical="/services"
+>
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-green-950 py-24 text-white md:py-32">
+      <div
+        class="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-green-300/10 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div
+        class="absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-green-500/10 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div class="relative mx-auto max-w-7xl px-6 text-center">
+        <p
+          class="text-sm font-black uppercase tracking-[0.25em] text-green-300"
+        >
+          Mon Terrain Parfait
+        </p>
+
+        <h1
+          class="mx-auto mt-5 max-w-5xl text-4xl font-black tracking-tight sm:text-5xl md:text-6xl"
+        >
+          Nos services d’entretien d’espaces verts
+        </h1>
+
+        <p
+          class="mx-auto mt-7 max-w-3xl text-lg leading-8 text-green-50/85"
+        >
+          Nous entretenons, nettoyons et remettons en état les jardins,
+          terrains et espaces extérieurs autour de Luzech, Cahors et dans les
+          communes voisines.
+        </p>
+
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+          <a
+            href="/#contact"
+            class="rounded-full bg-green-300 px-7 py-4 font-black text-green-950 transition hover:-translate-y-0.5 hover:bg-green-200"
+          >
+            Demander un devis gratuit
+          </a>
+
+          <a
+            href="tel:+33743528759"
+            class="rounded-full border border-white/30 px-7 py-4 font-black text-white transition hover:bg-white hover:text-green-950"
+          >
+            07 43 52 87 59
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="bg-white py-20 md:py-24">
+      <div
+        class="mx-auto grid max-w-7xl items-start gap-12 px-6 lg:grid-cols-[0.9fr_1.1fr]"
+      >
+        <div>
+          <p
+            class="text-sm font-black uppercase tracking-[0.25em] text-green-700"
+          >
+            Des prestations adaptées
+          </p>
+
+          <h2
+            class="mt-4 text-3xl font-black tracking-tight text-green-950 sm:text-4xl"
+          >
+            Une solution pour chaque extérieur
+          </h2>
+        </div>
+
+        <div class="space-y-5 text-lg leading-8 text-slate-600">
+          <p>
+            Chaque jardin et chaque terrain présentent des besoins différents.
+            Une parcelle peut être envahie par les ronces, une haie peut devenir
+            trop haute et une pelouse peut nécessiter une remise en état après
+            une longue période sans entretien.
+          </p>
+
+          <p>
+            Mon Terrain Parfait propose des prestations adaptées à l’état de
+            votre extérieur, à sa superficie, à son accessibilité et au résultat
+            que vous souhaitez obtenir.
+          </p>
+
+          <p>
+            Avant chaque chantier, nous échangeons avec vous afin de définir
+            précisément les zones à traiter. Le devis est gratuit et vous permet
+            de connaître clairement le contenu de l’intervention.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cartes de services -->
+    <section class="bg-[#f7f5ee] py-20 md:py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="max-w-3xl">
+          <p
+            class="text-sm font-black uppercase tracking-[0.25em] text-green-700"
+          >
+            Nos prestations
+          </p>
+
+          <h2
+            class="mt-4 text-3xl font-black tracking-tight text-green-950 sm:text-4xl"
+          >
+            Découvrez nos services
+          </h2>
+
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            Sélectionnez la prestation correspondant à vos besoins pour
+            découvrir le détail de nos interventions.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {
+            services.map((service) => (
+              <a
+                href={service.href}
+                class="group flex min-h-[320px] flex-col rounded-[2rem] border border-green-950/10 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-green-700/30 hover:shadow-xl"
+              >
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-black uppercase tracking-[0.2em] text-green-700">
+                    Service
+                  </span>
+
+                  <span class="text-3xl font-black text-green-950/15 transition group-hover:text-green-700">
+                    {service.number}
+                  </span>
+                </div>
+
+                <h2 class="mt-10 text-2xl font-black text-green-950">
+                  {service.title}
+                </h2>
+
+                <p class="mt-5 flex-1 leading-7 text-slate-600">
+                  {service.description}
+                </p>
+
+                <span class="mt-8 inline-flex items-center font-black text-green-800">
+                  Découvrir la prestation
+
+                  <span
+                    class="ml-2 transition group-hover:translate-x-2"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Pourquoi nous choisir -->
+    <section class="bg-green-950 py-20 text-white md:py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="max-w-3xl">
+          <p
+            class="text-sm font-black uppercase tracking-[0.25em] text-green-300"
+          >
+            Notre engagement
+          </p>
+
+          <h2
+            class="mt-4 text-3xl font-black tracking-tight sm:text-4xl"
+          >
+            Pourquoi choisir Mon Terrain Parfait ?
+          </h2>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <article class="rounded-3xl border border-white/15 bg-white/5 p-8">
+            <span class="text-3xl font-black text-green-300">01</span>
+
+            <h3 class="mt-5 text-xl font-black">
+              Une intervention adaptée
+            </h3>
+
+            <p class="mt-4 leading-7 text-green-50/75">
+              Le travail est défini selon l’état réel du terrain et le résultat
+              attendu.
+            </p>
+          </article>
+
+          <article class="rounded-3xl border border-white/15 bg-white/5 p-8">
+            <span class="text-3xl font-black text-green-300">02</span>
+
+            <h3 class="mt-5 text-xl font-black">
+              Un service de proximité
+            </h3>
+
+            <p class="mt-4 leading-7 text-green-50/75">
+              Nous intervenons principalement autour de Luzech, Cahors et dans
+              les communes voisines.
+            </p>
+          </article>
+
+          <article class="rounded-3xl border border-white/15 bg-white/5 p-8">
+            <span class="text-3xl font-black text-green-300">03</span>
+
+            <h3 class="mt-5 text-xl font-black">
+              Un devis clair et gratuit
+            </h3>
+
+            <p class="mt-4 leading-7 text-green-50/75">
+              Les travaux prévus sont définis avec vous avant le début du
+              chantier.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO local -->
+    <section class="bg-white py-20 md:py-24">
+      <div class="mx-auto max-w-5xl px-6">
+        <p
+          class="text-sm font-black uppercase tracking-[0.25em] text-green-700"
+        >
+          Secteur d’intervention
+        </p>
+
+        <h2
+          class="mt-4 text-3xl font-black tracking-tight text-green-950 sm:text-4xl"
+        >
+          Entretien d’espaces verts à Luzech, Cahors et dans le Lot
+        </h2>
+
+        <div class="mt-8 space-y-6 text-lg leading-8 text-slate-600">
+          <p>
+            Mon Terrain Parfait accompagne les particuliers, propriétaires,
+            résidents secondaires et professionnels pour l’entretien et la
+            remise en état de leurs espaces extérieurs.
+          </p>
+
+          <p>
+            Nous intervenons notamment pour le débroussaillage de terrains, la
+            taille de haies, la tonte de pelouse, le nettoyage de parcelles et
+            l’entretien général des jardins.
+          </p>
+
+          <p>
+            Notre secteur principal couvre Luzech, Cahors, Pradines, Mercuès,
+            Douelle, Caillac, Espère, Puy-l’Évêque ainsi que les communes
+            voisines. Une intervention en dehors de cette zone peut être étudiée
+            selon la nature et l’importance du chantier.
+          </p>
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-3">
+          {
+            serviceAreas.map((area) => (
+              <span class="rounded-full border border-green-950/10 bg-green-100 px-5 py-3 font-black text-green-900">
+                {area}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-green-800 py-20 text-white">
+      <div class="mx-auto max-w-5xl px-6 text-center">
+        <p
+          class="text-sm font-black uppercase tracking-[0.25em] text-green-200"
+        >
+          Devis gratuit
+        </p>
+
+        <h2
+          class="mt-4 text-3xl font-black tracking-tight sm:text-4xl md:text-5xl"
+        >
+          Votre terrain a besoin d’un entretien ?
+        </h2>
+
+        <p
+          class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-green-50/85"
+        >
+          Envoyez-nous quelques photos, votre commune et une estimation de la
+          surface pour obtenir un premier avis.
+        </p>
+
+        <div class="mt-9 flex flex-wrap justify-center gap-4">
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full bg-green-300 px-7 py-4 font-black text-green-950 transition hover:-translate-y-0.5 hover:bg-green-200"
+          >
+            Envoyer des photos sur WhatsApp
+          </a>
+
+          <a
+            href="/#contact"
+            class="rounded-full border border-white/30 px-7 py-4 font-black text-white transition hover:bg-white hover:text-green-950"
+          >
+            Accéder au formulaire
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

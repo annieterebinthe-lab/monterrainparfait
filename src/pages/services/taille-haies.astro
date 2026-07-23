@@ -1,0 +1,93 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServicePage from "../../components/ServicePage.astro";
+---
+
+<Layout
+  title="Taille de haies à Luzech et Cahors | Mon Terrain Parfait"
+  description="Taille de haies, entretien des arbustes et remise en forme de végétaux à Luzech, Cahors et dans le Lot. Devis gratuit."
+  canonical="/services/taille-haies"
+>
+  <ServicePage
+    eyebrow="Nos services"
+    title="Taille de haies professionnelle"
+
+    image="/images/chantier-1-apres.jpeg"
+    imageAlt="Taille et entretien d'une haie réalisés par Mon Terrain Parfait"
+
+    introduction="Nous réalisons la taille de vos haies afin de leur redonner une forme nette, régulière et adaptée à votre extérieur. Chaque intervention tient compte de la hauteur, de l’épaisseur et de l’état des végétaux."
+
+    detailedContent={[
+      "Une haie entretenue améliore immédiatement l’aspect d’un jardin. Une taille régulière permet de maîtriser son volume, de conserver une forme harmonieuse et d’éviter qu’elle ne déborde sur les passages, les clôtures ou les propriétés voisines.",
+
+      "Nous intervenons sur les haies de différentes hauteurs et densités, qu’il s’agisse d’un entretien courant ou d’une remise en forme plus importante. Avant l’intervention, nous définissons avec vous la hauteur et la forme souhaitées.",
+
+      "Le chantier est organisé afin de protéger les abords et de limiter la dispersion des déchets végétaux. Selon votre demande, les branches et résidus de taille peuvent être regroupés sur place ou évacués."
+    ]}
+
+    benefits={[
+      "Devis gratuit",
+      "Taille droite et régulière",
+      "Respect de la forme souhaitée",
+      "Matériel professionnel",
+      "Nettoyage après intervention",
+      "Évacuation possible des déchets verts"
+    ]}
+
+    includedServices={[
+      "Taille des côtés et du dessus",
+      "Réduction de hauteur",
+      "Remise en forme des haies",
+      "Taille d’entretien",
+      "Nettoyage des abords",
+      "Évacuation des déchets verts sur demande"
+    ]}
+
+    serviceAreas={[
+      "Luzech",
+      "Cahors",
+      "Pradines",
+      "Mercuès",
+      "Douelle",
+      "Puy-l'Évêque",
+      "Lot"
+    ]}
+
+    serviceLinks={[
+      {
+        title: "Débroussaillage",
+        description: "Coupe des herbes hautes, des ronces et des végétations denses.",
+        href: "/services/debroussaillage"
+      },
+      {
+        title: "Entretien de jardin",
+        description: "Un entretien régulier pour préserver un jardin propre et agréable.",
+        href: "/services/entretien-jardin"
+      },
+      {
+        title: "Nettoyage de terrain",
+        description: "Remise en état des terrains et extérieurs difficiles à entretenir.",
+        href: "/services/nettoyage-terrain"
+      }
+    ]}
+
+    faq={[
+      {
+        question: "À quelle période faut-il tailler une haie ?",
+        answer: "La période dépend de l’essence végétale, de sa croissance et du résultat recherché. Nous adaptons l’intervention à l’état de votre haie."
+      },
+      {
+        question: "Pouvez-vous réduire fortement la hauteur d’une haie ?",
+        answer: "Oui, lorsque l’état et l’essence de la haie le permettent. Nous vérifions d’abord la faisabilité afin d’éviter de fragiliser les végétaux."
+      },
+      {
+        question: "Le nettoyage est-il compris ?",
+        answer: "Oui, les résidus sont regroupés et les abords sont nettoyés après l’intervention."
+      },
+      {
+        question: "Évacuez-vous les branches ?",
+        answer: "Oui, l’évacuation des déchets verts peut être ajoutée au devis selon leur volume."
+      }
+    ]}
+  />
+</Layout>

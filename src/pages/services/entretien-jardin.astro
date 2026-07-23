@@ -1,0 +1,91 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServicePage from "../../components/ServicePage.astro";
+
+const benefits = [
+  "Entretien ponctuel ou régulier",
+  "Jardin propre toute l’année",
+  "Intervention soignée",
+  "Devis gratuit",
+];
+
+const includedServices = [
+  "Entretien général du jardin",
+  "Nettoyage des massifs",
+  "Ramassage des déchets verts",
+  "Petits travaux d’entretien",
+];
+
+const serviceAreas = [
+  "Luzech",
+  "Cahors",
+  "Pradines",
+  "Mercuès",
+  "Douelle",
+  "Puy-l’Évêque",
+];
+
+const serviceLinks = [
+  {
+    title: "Débroussaillage",
+    description:
+      "Élimination des herbes hautes, ronces et broussailles pour retrouver un terrain propre et praticable.",
+    href: "/services/debroussaillage",
+  },
+  {
+    title: "Taille de haies",
+    description:
+      "Taille d’entretien, réduction de hauteur et remise en forme pour des haies propres et régulières.",
+    href: "/services/taille-haies",
+  },
+  {
+    title: "Nettoyage de terrain",
+    description:
+      "Remise en état des terrains encombrés ou négligés avec nettoyage des zones à traiter.",
+    href: "/services/nettoyage-terrain",
+  },
+];
+
+const faq = [
+  {
+    question: "Proposez-vous un entretien ponctuel ?",
+    answer:
+      "Oui. Nous intervenons aussi bien pour une remise en état unique que pour un entretien régulier.",
+  },
+  {
+    question: "Le devis est-il gratuit ?",
+    answer:
+      "Oui, le devis est gratuit sur notre secteur d’intervention.",
+  },
+  {
+    question: "Intervenez-vous chez les particuliers ?",
+    answer:
+      "Oui, nous travaillons principalement chez les particuliers, mais aussi pour les professionnels et les résidences secondaires.",
+  },
+];
+
+const detailedContent = [
+  "Un jardin entretenu demande du temps et du matériel adapté. Mon Terrain Parfait intervient pour maintenir vos espaces verts en bon état tout au long de l’année.",
+  "Chaque intervention est réalisée selon la configuration de votre terrain et vos attentes. Nous privilégions un travail propre, soigné et durable.",
+  "Un entretien régulier permet de conserver un extérieur agréable, de limiter la prolifération des mauvaises herbes et de préserver la valeur de votre propriété.",
+];
+---
+
+<Layout
+  title="Entretien de jardin à Luzech et Cahors | Mon Terrain Parfait"
+  description="Entretien de jardin à Luzech, Cahors et dans le Lot. Intervention ponctuelle ou régulière et devis gratuit."
+  canonical="/services/entretien-jardin"
+>
+  <ServicePage
+    title="Entretien de jardin"
+    introduction="Nous réalisons l’entretien de jardins pour les particuliers, les professionnels et les résidences secondaires à Luzech, Cahors et dans les communes voisines. Chaque intervention est adaptée à vos besoins afin de conserver un extérieur propre, entretenu et agréable."
+    image="/images/chantier-1-apres.jpeg"
+    imageAlt="Jardin entretenu par Mon Terrain Parfait à Luzech"
+    benefits={benefits}
+    includedServices={includedServices}
+    serviceAreas={serviceAreas}
+    serviceLinks={serviceLinks}
+    faq={faq}
+    detailedContent={detailedContent}
+  />
+</Layout>
