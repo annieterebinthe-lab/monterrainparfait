@@ -19,6 +19,7 @@ const {
 } = Astro.props;
 
 const siteUrl = "https://monterrainparfait.fr";
+const googleAnalyticsId = "G-X4K7L11767";
 
 const canonicalUrl = canonical
   ? new URL(canonical, siteUrl).toString()
@@ -48,11 +49,26 @@ const socialImage = new URL(image, siteUrl).toString();
 
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon.png"
+    />
     <link rel="manifest" href="/manifest.webmanifest" />
 
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Mon Terrain Parfait" />
@@ -61,11 +77,13 @@ const socialImage = new URL(image, siteUrl).toString();
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={socialImage} />
 
+    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
 
+    <!-- Données structurées -->
     <script
       type="application/ld+json"
       set:html={JSON.stringify({
@@ -103,5 +121,121 @@ const socialImage = new URL(image, siteUrl).toString();
     <slot />
 
     <Footer />
+
+    <!-- Bandeau de consentement Analytics -->
+    <aside
+      id="cookie-banner"
+      class="fixed inset-x-4 bottom-4 z-[100] hidden rounded-[2rem] border border-white/10 bg-green-950 p-6 text-white shadow-2xl md:left-auto md:max-w-xl md:p-8"
+      aria-labelledby="cookie-title"
+      aria-describedby="cookie-description"
+    >
+      <p
+        id="cookie-title"
+        class="text-xl font-black"
+      >
+        Respect de votre vie privée
+      </p>
+
+      <p
+        id="cookie-description"
+        class="mt-3 leading-7 text-green-50/80"
+      >
+        Nous souhaitons utiliser Google Analytics pour mesurer anonymement
+        l’audience et améliorer le site. Vous pouvez accepter ou refuser.
+      </p>
+
+      <p class="mt-3 text-sm text-green-100/70">
+        Consultez notre
+        <a
+          href="/politique-de-confidentialite"
+          class="font-bold text-green-300 underline underline-offset-4 hover:text-green-200"
+        >
+          politique de confidentialité
+        </a>.
+      </p>
+
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <button
+          id="accept-analytics"
+          type="button"
+          class="rounded-full bg-green-300 px-6 py-3 font-black text-green-950 transition hover:bg-green-200"
+        >
+          Accepter
+        </button>
+
+        <button
+          id="refuse-analytics"
+          type="button"
+          class="rounded-full border border-white/30 px-6 py-3 font-black text-white transition hover:bg-white/10"
+        >
+          Refuser
+        </button>
+      </div>
+    </aside>
+
+    <script
+      is:inline
+      define:vars={{ googleAnalyticsId }}
+    >
+      const consentKey = "monterrainparfait-analytics-consent";
+      const cookieBanner = document.getElementById("cookie-banner");
+      const acceptButton = document.getElementById("accept-analytics");
+      const refuseButton = document.getElementById("refuse-analytics");
+
+      let analyticsLoaded = false;
+
+      function loadGoogleAnalytics() {
+        if (analyticsLoaded) {
+          return;
+        }
+
+        analyticsLoaded = true;
+
+        window.dataLayer = window.dataLayer || [];
+
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+
+        window.gtag("js", new Date());
+        window.gtag("config", googleAnalyticsId, {
+          anonymize_ip: true,
+        });
+
+        const analyticsScript = document.createElement("script");
+        analyticsScript.async = true;
+        analyticsScript.src =
+          `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`;
+
+        document.head.appendChild(analyticsScript);
+      }
+
+      function hideCookieBanner() {
+        cookieBanner?.classList.add("hidden");
+      }
+
+      function showCookieBanner() {
+        cookieBanner?.classList.remove("hidden");
+      }
+
+      const savedConsent = localStorage.getItem(consentKey);
+
+      if (savedConsent === "accepted") {
+        loadGoogleAnalytics();
+      } else if (savedConsent !== "refused") {
+        showCookieBanner();
+      }
+
+      acceptButton?.addEventListener("click", () => {
+        localStorage.setItem(consentKey, "accepted");
+        loadGoogleAnalytics();
+        hideCookieBanner();
+      });
+
+      refuseButton?.addEventListener("click", () => {
+        localStorage.setItem(consentKey, "refused");
+        hideCookieBanner();
+      });
+    </script>
   </body>
 </html>
