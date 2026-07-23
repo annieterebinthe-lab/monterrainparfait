@@ -1,15 +1,13 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@tailwindcss/vite';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig } from "astro/config";
+import tailwind from "@tailwindcss/vite";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: 'https://www.monterrainparfait.fr',
+  site: "https://monterrainparfait.fr",
 
-  integrations: [
-    sitemap()
-  ],
+  integrations: [sitemap()],
 
   vite: {
-    plugins: [tailwind()]
-  }
+    plugins: [tailwind()],
+  },
 });
